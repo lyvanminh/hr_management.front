@@ -1,4 +1,4 @@
-# ads-manager-ui
+# HR Management UI
 
 ## Project setup
 ```
