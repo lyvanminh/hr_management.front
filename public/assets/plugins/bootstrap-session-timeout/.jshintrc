@@ -1,0 +1,22 @@
+{
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "sub": true,
+  "undef": false,
+  "unused": false,
+  "boss": true,
+  "eqnull": true,
+  "node": true,
+  "globals": {
+    "document": true,
+    "window": true,
+    "jQuery": true,
+    "$": true
+  },
+  "-W117": true,
+  "esversion": 6
+}

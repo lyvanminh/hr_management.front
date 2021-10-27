@@ -1,0 +1,39 @@
+.logo-text {
+    color: #fff;
+    font-size: 24px;
+    display: inline-block;
+    margin-left: 5px;
+    font-weight: 500;
+}
+
+.logo-text-small {
+    color: #fff;
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 5px;
+    font-weight: 500;
+}
+
+.full-height-screen {
+    height: 100vh;
+}
+
+.page-item {
+    cursor: pointer;
+}
+
+.loading-table-view {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.loading-table-view-container .btn-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
