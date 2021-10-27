@@ -1,47 +1,8 @@
 // export const HOME_URL = 'http://localhost:8080';// 'http://backuptk.info';
-export const HOME_URL = 'http://backuptk.info';
+export const HOME_URL = 'http://localhost:3000';
 export const API_URL = HOME_URL + '/api/v1';
 export const ROOT_IMAGE = '/assets/media';
 export const pageSize = process.env.MIX_PAGE_SIZE || 20;
-
-export const VIA_DATA_STATUS = {
-    'NEW': 'New',
-    'LOGIN_FAILED': 'Login',
-    'LOGIN_SUCCESS': 'Login',
-    'PASS_CHECKPOINT_FAILED': 'Checkpoint',
-    'PASS_CHECKPOINT_SUCCESS': 'Checkpoint',
-    'CHECK_ADS_SUCCESS': 'AdsDone',
-    'CHANGE_PASS_SUCCESS': 'ChangePass',
-    'LOGIN_FAILED_API': 'WrongPass/2FA',
-    'VIA_DONE': 'Done',
-};
-
-export const VIA_DATA_STATUS_REAL_TEXT = {
-    'NEW': 'New',
-    'LOGIN_FAILED': 'Login thất bại',
-    'LOGIN_SUCCESS': 'Login thành công',
-    'PASS_CHECKPOINT_FAILED': 'Checkpoint thất bại',
-    'PASS_CHECKPOINT_SUCCESS': 'Checkpoint thành công',
-    'CHECK_ADS_SUCCESS': 'AdsDone',
-    'CHANGE_PASS_SUCCESS': 'Changed Pass',
-    'LOGIN_FAILED_API': 'Wrong Pass / 2FA',
-    'VIA_DONE': 'Done',
-};
-
-export const VIA_DATA_STATUS_CONST = ['NEW', 'LOGIN_FAILED', 'LOGIN_SUCCESS', 'PASS_CHECKPOINT_FAILED',
-    'PASS_CHECKPOINT_SUCCESS', 'CHECK_ADS_SUCCESS', 'CHANGE_PASS_SUCCESS', 'LOGIN_FAILED_API', 'VIA_DONE'];
-
-export const VIA_DATA_STATUS_COLOR = {
-    'NEW': 'info',
-    'LOGIN_FAILED': 'danger',
-    'LOGIN_SUCCESS': 'success',
-    'PASS_CHECKPOINT_FAILED': 'danger',
-    'PASS_CHECKPOINT_SUCCESS': 'success',
-    'CHECK_ADS_SUCCESS': 'success',
-    'CHANGE_PASS_SUCCESS': 'success',
-    'LOGIN_FAILED_API': 'danger',
-    'VIA_DONE': 'success',
-};
 
 export const USER_STATUS = {
     'DEACTIVATED': 'Chưa kích hoạt',
