@@ -1,4 +1,3 @@
-// export const HOME_URL = 'http://localhost:8080';// 'http://backuptk.info';
 export const HOME_URL = 'http://localhost:3000';
 export const API_URL = HOME_URL + '/api/v1';
 export const ROOT_IMAGE = '/assets/media';
