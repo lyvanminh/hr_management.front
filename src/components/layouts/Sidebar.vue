@@ -32,7 +32,7 @@
                     <i class="kt-menu__section-icon flaticon-more-v2"></i>
                 </li>
                 <li :class="'kt-menu__item ' + checkActive('AdsManager')" aria-haspopup="true">
-                    <router-link class="kt-menu__link" :to="setLinkTo('AdsManager')">
+                    <router-link class="kt-menu__link" :to="setLinkTo('uploadCandidate')">
                         <i class="kt-menu__link-icon flaticon-price-tag"></i>
                         <span class="kt-menu__link-text">Ads Data</span>
                     </router-link>

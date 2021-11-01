@@ -2,6 +2,7 @@ import Login from './../pages/auth/Login';
 // import AdsManager from "../pages/admin/AdsManager";
 import UserType from './../pages/usertype';
 import AddUser from "../pages/admin/AddUser";
+import uploadCandidate from "../pages/uploadCandidate";
 
 export const routes = [
     //start authenticate
@@ -18,6 +19,15 @@ export const routes = [
         path: '/add-user',
         name: 'AddUser',
         component: AddUser,
+        meta: {
+            auth: true,
+            not_sidebar: false
+        },
+    },
+    {
+        path: '/upload-candidate',
+        name: 'uploadCandidate',
+        component: uploadCandidate,
         meta: {
             auth: true,
             not_sidebar: false
