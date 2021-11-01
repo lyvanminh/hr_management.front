@@ -1,4 +1,5 @@
 import Http from './../../utils/Http';
+import {API_URL} from "../../config";
 
 const getDefaultState = () => {
     return {
@@ -29,28 +30,6 @@ const actions = {
                 localStorage.setItem('user_id', info.user.id);
                 localStorage.setItem('user_type', info.user.role.toLowerCase());
                 context.commit('user/setUser', info, {root: true});
-
-                if (info.user.role === 'ADMIN') {
-                    localStorage.setItem('user_type', 'admin');
-                    params.router.push({name: 'Dashboard', params: {user_type: 'admin'}});
-                } else {
-                    localStorage.setItem('user_type', 'employee');
-                    params.router.push({name: 'Dashboard', params: {user_type: 'employee'}});
-                }
-              
-                // let user = res.data.data;
-                // localStorage.setItem('token', user.access_token);
-                // localStorage.setItem('user_id', user.id);
-                // localStorage.setItem('user_type', user.role.toLowerCase());
-                // context.commit('user/setUser', user, {root: true});
-              
-                // if (user.role === 'ADMIN') {
-                //     localStorage.setItem('user_type', 'admin');
-                //     params.router.push({name: 'Dashboard', params: {user_type: 'admin'}});
-                // } else {
-                //     localStorage.setItem('user_type', 'employee');
-                //     params.router.push({name: 'Dashboard', params: {user_type: 'employee'}});
-                // }
             } else {
                 context.commit('message/setError', res.data.error_description, {root: true});
             }
@@ -106,6 +85,65 @@ const actions = {
             }
         });
     },
+
+    actForgot(context, params) {
+        context.commit('message/setNull', null, {root: true});
+        let url = API_URL + '/oauth/me/forgot';
+
+        return new Http().post(url, params.form)
+        .then(res => {
+            if (res.data.success === true) {
+                context.commit('user/setUser', null, {root: true});
+            } else {
+                context.commit('message/setError', res.data.error_description, {root: true});
+            }
+        })
+        .catch(error => {
+            if (error.response.status === 401) {
+                context.commit('message/setErrorDescription', error.response.data.error_description, {root: true});
+            }
+        });
+    },
+
+    actResetPassword(context, params) {
+        context.commit('message/setNull', null, {root: true});
+        let url = API_URL + '/oauth/me/reset';
+
+        return new Http().post(url, params.form)
+        .then(res => {
+            if (res.data.success === true) {
+                context.commit('user/setUser', null, {root: true});
+                window.location.href = '/login';
+            } else {
+                context.commit('message/setError', res.data.error_description, {root: true});
+            }
+        })
+        .catch(error => {
+            if (error.response.status === 401) {
+                context.commit('message/setErrorDescription', error.response.data.error_description, {root: true});
+            }
+        });
+    },
+
+    actConfirmSignup(context, params) {
+        context.commit('message/setNull', null, {root: true});
+        let url = API_URL + '/oauth/me/confirm_email';
+
+        return new Http().get(url, params)
+        .then(res => {
+            if (res.data.success === true) {
+                context.commit('user/setUser', null, {root: true});
+                window.location.href = '/login';
+            } else {
+                context.commit('message/setError', res.data.error_description, {root: true});
+            }
+        })
+        .catch(error => {
+            if (error.response.status === 401) {
+                context.commit('message/setErrorDescription', error.response.data.error_description, {root: true});
+            }
+        });
+    }
 };
 
 const mutations = {
