@@ -36,3 +36,9 @@ export const getUserRefferals = ({ commit }) => {
     })
 }
 
+export const getListCandidate = ({ commit }) => {
+    axios.get(API_URL + '/candidates')
+    .then(response => {
+        commit('CANDIDATES', response.data.items);
+    })
+}
