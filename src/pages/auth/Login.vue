@@ -78,35 +78,6 @@
                                     </div>
                                 </div>
 
-                                <!--end::Form-->
-
-                                <!--begin::Divider-->
-                                <div class="kt-login-v1__divider">
-                                    <div class="kt-divider">
-                                        <span></span>
-                                        <span>OR</span>
-                                        <span></span>
-                                    </div>
-                                </div>
-
-                                <!--end::Divider-->
-
-                                <!--begin::Options-->
-                                <div class="kt-login-v1__options">
-                                    <a href="#" class="btn">
-                                        <i class="fab fa-facebook-f"></i>
-                                        Fcebook
-                                    </a>
-                                    <a href="#" class="btn">
-                                        <i class="fab fa-twitter"></i>
-                                        Twitter
-                                    </a>
-                                    <a href="#" class="btn">
-                                        <i class="fab fa-google"></i>
-                                        Google
-                                    </a>
-                                </div>
-
                                 <!--end::Options-->
                             </div>
                         </div>

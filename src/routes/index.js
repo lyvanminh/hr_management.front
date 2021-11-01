@@ -10,9 +10,8 @@ import ForgotPassword from "./../pages/auth/ForgotPassword";
 import ConfirmSignup from "./../pages/auth/ConfirmSignup";
 
 export const routes = [
-    //start authenticate
     {
-        path: '/log-in',
+        path: '/login',
         meta: {
             auth: false,
             not_sidebar: true

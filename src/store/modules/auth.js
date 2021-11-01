@@ -29,7 +29,9 @@ const actions = {
                 localStorage.setItem('token', info.token_information.access_token);
                 localStorage.setItem('user_id', info.user.id);
                 localStorage.setItem('user_type', info.user.role.toLowerCase());
+                localStorage.setItem('user', JSON.stringify(info.user));
                 context.commit('user/setUser', info, {root: true});
+                window.location.href = '/';
             } else {
                 context.commit('message/setError', res.data.error_description, {root: true});
             }
@@ -43,26 +45,20 @@ const actions = {
 
     actLogout(context, params) {
         context.commit('message/setNull', null, {root: true});
-        // let url = '/user/logout';
-        //
-        // return new Http().authenticated().post(url)
-        // .then(res => {
-        //     localStorage.clear();
-        //     context.commit('user/setUser', null, {root: true});
-        //     // params.router.push({name: 'login'})
-        //     window.location.href = '/login';
-        // })
-        // .catch(error => {
-        //     if (error.response.status === 401) {
-        //         context.commit('message/setErrorDescription', error.response.data.error_description, {root: true});
-        //     }
-        // });
-
-        localStorage.setItem('token', '');
-        localStorage.setItem('user_id', 0);
-        localStorage.setItem('user_type', '');
-        context.commit('user/setUser', null, {root: true});
-        window.location.href = '/login';
+        let url = '/oauth/revoke';
+        
+        return new Http().authenticated().post(url)
+        .then(res => {
+            localStorage.clear();
+            context.commit('user/setUser', null, {root: true});
+            params.router.push({name: 'login'})
+            window.location.href = '/login';
+        })
+        .catch(error => {
+            if (error.response.status === 401) {
+                context.commit('message/setErrorDescription', error.response.data.error_description, {root: true});
+            }
+        });
     },
 
     actSignup(context, params) {
@@ -72,8 +68,6 @@ const actions = {
         return new Http().post(url, params.form)
         .then(res => {
             if (res.data.status === 1) {
-                // window.location.replace("/");
-                // context.commit('increment')
                 context.commit('message/getSuccess', 'Success', {root: true});
             } else {
                 context.commit('message/setError', res.data.error_description, {root: true});

@@ -301,7 +301,7 @@
 							</li>
 							<li class="kt-nav__separator kt-nav__separator--fit"></li>
 							<li class="kt-nav__custom kt-space-between">
-								<a href="custom/login/login-v1.html" target="_blank" class="btn btn-label-brand btn-upper btn-sm btn-bold">Sign Out</a>
+								<a @click="logout()" class="btn btn-label-brand btn-upper btn-sm btn-bold">Sign Out</a>
 								<i class="flaticon2-information kt-label-font-color-2" data-toggle="kt-tooltip" data-placement="right" title="" data-original-title="Click to learn more..."></i>
 							</li>
 						</ul>
@@ -323,7 +323,17 @@
 
 <script>
 export default {
-  name: "SubHeader"
+	name: "SubHeader",
+	data() 
+	{
+		return {
+		}
+	},
+	methods: {
+		logout() {
+			this.$store.dispatch('auth/actLogout', {})
+		}
+	}
 }
 </script>
 
