@@ -62,10 +62,13 @@
                                  </div>
                                 <div class="kt-login-v1__form kt-form" autocomplete="off">
                                     <div class="form-group">
-                                        <input @keyup.enter="trigger" class="form-control" type="text" v-model="form.username" placeholder="Username" name="username" autocomplete="off">
+                                        <input @keyup.enter="trigger" class="form-control" type="text" v-model="form.email" placeholder="Email" name="email" autocomplete="off">
                                     </div>
                                     <div class="form-group">
                                         <input @keyup.enter="trigger" class="form-control" type="password" v-model="form.password" placeholder="Password" name="password" autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                        <input @keyup.enter="trigger" class="form-control" type="hidden" v-model="form.grant_type" name="grant_type">
                                     </div>
                                     <div class="kt-login-v1__actions">
                                         <a href="#" class="kt-login-v1__forgot">
@@ -142,10 +145,12 @@
     export default {
         data() {
             return {
+                // grant_type: "password",
                 form: {
-                    username: '',
+                    email: '',
                     password: '',
-                }
+                    grant_type: 'password',
+                },
             }
         },
         computed: {
@@ -158,13 +163,13 @@
         },
         methods: {
             submit() {
-                // this.$store.dispatch('auth/actLogin', {
-                //     form: this.form,
-                //     router: this.$router
-                // })
+                this.$store.dispatch('auth/actLogin', {
+                    form: this.form,
+                    router: this.$router
+                })
             },
             trigger() {
-                // this.$refs.submit.click();
+                this.$refs.submit.click();
             }
         }
     }

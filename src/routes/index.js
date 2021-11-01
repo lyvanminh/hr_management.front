@@ -1,4 +1,5 @@
 import Login from './../pages/auth/Login';
+import Signup from './../pages/auth/Signup';
 // import AdsManager from "../pages/admin/AdsManager";
 import UserType from './../pages/usertype';
 import AddUser from "../pages/admin/AddUser";
@@ -13,6 +14,15 @@ export const routes = [
         },
         name: 'log-in',
         component: Login
+    },
+    {
+        path: '/sign-up',
+        meta: {
+            auth: false,
+            not_sidebar: true
+        },
+        name: 'Signup',
+        component: Signup
     },
     {
         path: '/add-user',
