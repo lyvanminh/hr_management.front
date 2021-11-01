@@ -62,10 +62,13 @@
                                  </div>
                                 <div class="kt-login-v1__form kt-form" autocomplete="off">
                                     <div class="form-group">
-                                        <input @keyup.enter="trigger" class="form-control" type="text" v-model="form.username" placeholder="Username" name="username" autocomplete="off">
+                                        <input @keyup.enter="trigger" class="form-control" type="text" v-model="form.email" placeholder="Email" name="email" autocomplete="off">
                                     </div>
                                     <div class="form-group">
                                         <input @keyup.enter="trigger" class="form-control" type="password" v-model="form.password" placeholder="Password" name="password" autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                        <input @keyup.enter="trigger" class="form-control" type="hidden" v-model="form.grant_type" name="grant_type">
                                     </div>
                                     <div class="kt-login-v1__actions">
                                         <a href="#" class="kt-login-v1__forgot">
@@ -73,35 +76,6 @@
                                         </a>
                                         <button @click="submit" ref="submit" class="btn btn-pill btn-elevate">Sign In</button>
                                     </div>
-                                </div>
-
-                                <!--end::Form-->
-
-                                <!--begin::Divider-->
-                                <div class="kt-login-v1__divider">
-                                    <div class="kt-divider">
-                                        <span></span>
-                                        <span>OR</span>
-                                        <span></span>
-                                    </div>
-                                </div>
-
-                                <!--end::Divider-->
-
-                                <!--begin::Options-->
-                                <div class="kt-login-v1__options">
-                                    <a href="#" class="btn">
-                                        <i class="fab fa-facebook-f"></i>
-                                        Fcebook
-                                    </a>
-                                    <a href="#" class="btn">
-                                        <i class="fab fa-twitter"></i>
-                                        Twitter
-                                    </a>
-                                    <a href="#" class="btn">
-                                        <i class="fab fa-google"></i>
-                                        Google
-                                    </a>
                                 </div>
 
                                 <!--end::Options-->
@@ -142,10 +116,12 @@
     export default {
         data() {
             return {
+                // grant_type: "password",
                 form: {
-                    username: '',
+                    email: '',
                     password: '',
-                }
+                    grant_type: 'password',
+                },
             }
         },
         computed: {
@@ -158,13 +134,13 @@
         },
         methods: {
             submit() {
-                // this.$store.dispatch('auth/actLogin', {
-                //     form: this.form,
-                //     router: this.$router
-                // })
+                this.$store.dispatch('auth/actLogin', {
+                    form: this.form,
+                    router: this.$router
+                })
             },
             trigger() {
-                // this.$refs.submit.click();
+                this.$refs.submit.click();
             }
         }
     }

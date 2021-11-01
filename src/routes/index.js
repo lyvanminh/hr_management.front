@@ -1,4 +1,5 @@
 import Login from './../pages/auth/Login';
+import Signup from './../pages/auth/Signup';
 // import AdsManager from "../pages/admin/AdsManager";
 import UserType from './../pages/usertype';
 import AddUser from "../pages/admin/AddUser";
@@ -9,15 +10,23 @@ import ForgotPassword from "./../pages/auth/ForgotPassword";
 import ConfirmSignup from "./../pages/auth/ConfirmSignup";
 
 export const routes = [
-    //start authenticate
     {
-        path: '',
+        path: '/login',
         meta: {
             auth: false,
             not_sidebar: true
         },
         name: 'log-in',
         component: Login
+    },
+    {
+        path: '/sign-up',
+        meta: {
+            auth: false,
+            not_sidebar: true
+        },
+        name: 'Signup',
+        component: Signup
     },
     {
         path: '/forgot-password',
@@ -28,6 +37,7 @@ export const routes = [
         name: 'forgot-password',
         component: ForgotPassword
     },
+
     {
         path: '/confirm-email',
         meta: {
