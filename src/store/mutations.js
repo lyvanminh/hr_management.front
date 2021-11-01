@@ -17,3 +17,7 @@ export const POSITIONS = (state, positions) => {
 export const USERS = (state, users) => {
     state.users = users;
 }
+
+export const CANDIDATES = (state, candidates) => {
+    state.candidates = candidates;
+}

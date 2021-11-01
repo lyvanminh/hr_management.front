@@ -3,5 +3,6 @@ export default {
     languages: [],
     levels: [],
     positions: [],
-    users: []
+    users: [],
+    candidates: []
 }

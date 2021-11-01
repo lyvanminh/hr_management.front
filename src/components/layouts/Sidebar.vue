@@ -4,8 +4,7 @@
     <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
         <div class="kt-aside__brand-logo">
             <a href="">
-                <img alt="Logo" src="assets/media/logos/icon48.png" />
-                <span class="logo-text-small">Ads</span>
+                <img alt="Logo" src="assets/media/logos/hr_management.jpeg" style="width: 20%" />
             </a>
         </div>
         <div class="kt-aside__brand-tools">
@@ -31,12 +30,27 @@
                     <h4 class="kt-menu__section-text">Resources</h4>
                     <i class="kt-menu__section-icon flaticon-more-v2"></i>
                 </li>
-                <li :class="'kt-menu__item ' + checkActive('AdsManager')" aria-haspopup="true">
+                <li :class="'kt-menu__item ' + checkActive('uploadCandidate')" aria-haspopup="true">
                     <router-link class="kt-menu__link" :to="setLinkTo('uploadCandidate')">
                         <i class="kt-menu__link-icon flaticon-price-tag"></i>
                         <span class="kt-menu__link-text">Ads Data</span>
                     </router-link>
                 </li>
+
+                <li :class="'kt-menu__item ' + checkActive('ListRequest')" aria-haspopup="true">
+                    <router-link class="kt-menu__link" :to="setLinkTo('ListRequest')">
+                        <i class="kt-menu__link-icon flaticon2-list-3"></i>
+                        <span class="kt-menu__link-text">List Request</span>
+                    </router-link>
+                </li>
+
+                <li :class="'kt-menu__item ' + checkActive('ListCandidate')" aria-haspopup="true">
+                    <router-link class="kt-menu__link" :to="setLinkTo('ListCandidate')">
+                        <i class="kt-menu__link-icon flaticon2-list-3"></i>
+                        <span class="kt-menu__link-text">List Candidate</span>
+                    </router-link>
+                </li>
+
 
                 <li :class="'kt-menu__item ' + checkActive('BmManager')" aria-haspopup="true">
                     <router-link class="kt-menu__link" :to="setLinkTo('BmManager')">
