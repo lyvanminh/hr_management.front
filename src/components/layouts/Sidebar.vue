@@ -19,12 +19,12 @@
         <div id="kt_aside_menu" class="kt-aside-menu " data-ktmenu-vertical="1" data-ktmenu-scroll="1" data-ktmenu-dropdown-timeout="500">
             <ul class="kt-menu__nav ">
 
-                <li :class="'kt-menu__item ' + checkActive('Dashboard')" aria-haspopup="true">
+                <!-- <li :class="'kt-menu__item ' + checkActive('Dashboard')" aria-haspopup="true">
                     <router-link class="kt-menu__link" :to="setLinkTo('Dashboard')">
                         <i class="kt-menu__link-icon flaticon-diagram"></i>
                         <span class="kt-menu__link-text">Dashboard</span>
                     </router-link>
-                </li>
+                </li> -->
 
                 <li class="kt-menu__section ">
                     <h4 class="kt-menu__section-text">Resources</h4>
@@ -44,7 +44,7 @@
                     </router-link>
                 </li>
 
-                <li :class="'kt-menu__item ' + checkActive('ListCandidate')" aria-haspopup="true">
+                <li :class="'kt-menu__item ' + checkActive('ListCandidate' || 'uploadCandidate')" aria-haspopup="true">
                     <router-link class="kt-menu__link" :to="setLinkTo('ListCandidate')">
                         <i class="kt-menu__link-icon flaticon2-list-3"></i>
                         <span class="kt-menu__link-text">List Candidate</span>

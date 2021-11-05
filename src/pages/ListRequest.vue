@@ -4,7 +4,7 @@
         <div class="kt-subheader   kt-grid__item" id="kt_subheader">
             <div class="kt-container  kt-container--fluid ">
                 <div class="kt-subheader__main">
-                    <h3 class="kt-subheader__title">Inbox</h3>
+                    <!-- <h3 class="kt-subheader__title">Inbox</h3>
                     <span class="kt-subheader__separator kt-hidden"></span>
                     <div class="kt-subheader__breadcrumbs">
                         <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
@@ -18,12 +18,16 @@
                         <a href="" class="kt-subheader__breadcrumbs-link">
                             Inbox </a>
 
-                        <!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
-                    </div>
+                    </div> -->
                 </div>
                 <div class="kt-subheader__toolbar">
                     <div class="kt-subheader__wrapper">
-                        <a href="#" class="btn btn-icon btn btn-label btn-label-brand btn-bold" data-toggle="kt-tooltip" title="Reports" data-placement="top"><i class="flaticon2-writing"></i></a>
+                        <div class="dropdown dropdown-inline">
+                            <router-link class="btn btn-icon btn btn-label btn-label-brand btn-bold" :to="setLinkTo('create-request-recruitment')">
+                                <i class="flaticon2-add-1"></i>
+                            </router-link>
+                        </div>
+                        <!-- <a href="#" class="btn btn-icon btn btn-label btn-label-brand btn-bold" data-toggle="kt-tooltip" title="Reports" data-placement="top"><i class="flaticon2-writing"></i></a>
                         <a href="#" class="btn btn-icon btn btn-label btn-label-brand btn-bold" data-toggle="kt-tooltip" title="Calendar" data-placement="top"><i class="flaticon2-hourglass-1"></i></a>
                         <div class="dropdown dropdown-inline" data-toggle="kt-tooltip" title="Quick actions" data-placement="top">
                             <a href="#" class="btn btn-icon btn btn-label btn-label-brand btn-bold" data-toggle="dropdown" data-offset="0px,0px" aria-haspopup="true" aria-expanded="false">
@@ -72,8 +76,8 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="dropdown dropdown-inline" data-toggle="kt-tooltip" title="Quick actions" data-placement="top">
+                        </div> -->
+                        <!-- <div class="dropdown dropdown-inline" data-toggle="kt-tooltip" title="Quick actions" data-placement="top">
                             <a href="#" class="btn btn btn-label btn-label-brand btn-bold" data-toggle="dropdown" data-offset="0 0" aria-haspopup="true" aria-expanded="false">
                                 Reports
                             </a>
@@ -123,7 +127,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -146,9 +150,9 @@
 
                 <!--Begin:: Inbox Aside-->
                 <div class="kt-grid__item   kt-portlet  kt-inbox__aside" id="kt_inbox_aside">
-                    <button type="button" class="btn btn-brand  btn-upper btn-bold  kt-inbox__compose" data-toggle="modal" data-target="#kt_inbox_compose">
+                    <!-- <button type="button" class="btn btn-brand  btn-upper btn-bold  kt-inbox__compose" data-toggle="modal" data-target="#kt_inbox_compose">
                         <i class="flaticon2-send-1"></i> new message
-                    </button>
+                    </button> -->
                     <div class="kt-inbox__nav">
                         <ul class="kt-nav">
                             <li class="kt-nav__item kt-nav__item--active">
