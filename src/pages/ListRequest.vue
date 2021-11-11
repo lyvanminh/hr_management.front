@@ -153,41 +153,47 @@
                         <ul class="kt-nav">
                             <li class="kt-nav__item kt-nav__item--active">
                                 <a href="#" class="kt-nav__link" data-action="list" data-type="inbox">
-                                    <i class="kt-nav__link-icon flaticon2-mail"></i>
-                                    <span class="kt-nav__link-text">Inbox</span>
-                                    <span class="kt-nav__link-badge">
+                                    <!-- <i class="kt-nav__link-icon flaticon2-mail"></i> -->
+                                    <span class="kt-nav__link-text">List request</span>
+                                    <!-- <span class="kt-nav__link-badge">
                                         <span class="kt-badge kt-badge--unified-success kt-badge--md kt-badge--rounded kt-badge--boldest">3</span>
-                                    </span>
+                                    </span> -->
                                 </a>
                             </li>
                             <li class="kt-nav__item">
-                                <a href="#" class="kt-nav__link" data-action="list" data-type="marked">
-                                    <i class="kt-nav__link-icon flaticon-star"></i>
-                                    <span class="kt-nav__link-text">Marked</span>
+                                <a @click="getRequest(0)" class="kt-nav__link" data-action="list" data-type="marked">
+                                    <!-- <i class="kt-nav__link-icon flaticon-star"></i> -->
+                                    <span class="kt-nav__link-text">Recruitment request</span>
                                 </a>
                             </li>
                             <li class="kt-nav__item">
-                                <a href="#" class="kt-nav__link" data-action="list" data-type="draft">
-                                    <i class="kt-nav__link-icon flaticon2-writing"></i>
-                                    <span class="kt-nav__link-text">Draft</span>
-                                    <span class="kt-nav__link-badge">
+                                <a @click="getRequest(1)" class="kt-nav__link" data-action="list" data-type="draft">
+                                    <!-- <i class="kt-nav__link-icon flaticon2-writing"></i> -->
+                                    <span class="kt-nav__link-text">Evaluate CV</span>
+                                    <!-- <span class="kt-nav__link-badge">
                                         <span class="kt-badge kt-badge--unified-warning kt-badge--md kt-badge--rounded kt-badge--boldest">1</span>
-                                    </span>
+                                    </span> -->
                                 </a>
                             </li>
                             <li class="kt-nav__item">
-                                <a href="#" class="kt-nav__link" data-action="list" data-type="sent">
-                                    <i class="kt-nav__link-icon flaticon2-mail-1"></i>
-                                    <span class="kt-nav__link-text">Sent</span>
+                                <a @click="getRequest(2)" class="kt-nav__link" data-action="list" data-type="sent">
+                                    <!-- <i class="kt-nav__link-icon flaticon2-mail-1"></i> -->
+                                    <span class="kt-nav__link-text">Evaluate test</span>
                                 </a>
                             </li>
                             <li class="kt-nav__item">
-                                <a href="#" class="kt-nav__link" data-action="list" data-type="trash">
-                                    <i class="kt-nav__link-icon flaticon2-rubbish-bin"></i>
-                                    <span class="kt-nav__link-text">Trash</span>
+                                <a @click="getRequest(3)" class="kt-nav__link" data-action="list" data-type="trash">
+                                    <!-- <i class="kt-nav__link-icon flaticon2-rubbish-bin"></i> -->
+                                    <span class="kt-nav__link-text">Evaluate interview</span>
                                 </a>
                             </li>
-                            <li class="kt-nav__item kt-margin-t-30">
+                              <li class="kt-nav__item">
+                                <a @click="getRequest(4)" class="kt-nav__link" data-action="list" data-type="trash">
+                                    <!-- <i class="kt-nav__link-icon flaticon2-rubbish-bin"></i> -->
+                                    <span class="kt-nav__link-text">Evaluate offer</span>
+                                </a>
+                            </li>
+                            <!-- <li class="kt-nav__item kt-margin-t-30">
                                 <a href="#" class="kt-nav__link">
                                     <i class="kt-nav__link-icon fa fa-genderless kt-font-warning"></i>
                                     <span class="kt-nav__link-text">Custom Work</span>
@@ -210,7 +216,7 @@
                                     <i class="kt-nav__link-icon fa flaticon2-plus"></i>
                                     <span class="kt-nav__link-text">Add Label</span>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -401,7 +407,7 @@
                     </div>
                     <div class="kt-portlet__body kt-portlet__body--fit-x">
                         <div class="kt-inbox__items" data-type="inbox">
-                            <div class="kt-inbox__item kt-inbox__item--unread" data-id="1" data-type="inbox">
+                            <div class="kt-inbox__item kt-inbox__item--unread" data-id="1" data-type="inbox" v-for="request in requests.items" v-bind:key="request.id">
                                 <div class="kt-inbox__info">
                                     <div class="kt-inbox__actions">
                                         <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
@@ -434,936 +440,7 @@
                                 <div class="kt-inbox__datetime" data-toggle="view">
                                     8:30 PM
                                 </div>
-                            </div>
-                            <div class="kt-inbox__item kt-inbox__item--unread" data-id="2" data-type="inbox">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--danger">
-                                            <span>JM</span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Jason Muller</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Digital PPV Customer Confirmation - </span>
-                                        <span class="kt-inbox__summary">Please make sure that you have one of the following cards with you when we deliver your order...</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    day ago
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="3" data-type="inbox">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--warning">
-                                            <span>EF</span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Enrico Fermi</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Payment Notification DLOP2329KD - </span>
-                                        <span class="kt-inbox__summary">Your Order #224820998666029 has been placed on Saturday, 29 June, 2019 10:02:41 via Online Banking...</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    11:20PM
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="4" data-type="inbox">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon kt-inbox__icon--on" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon kt-inbox__icon--on" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand" style="background-image: url('./assets/media/users/100_7.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Charlie Stone</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Your Order #224820998666029 has been Confirmed - </span>
-                                        <span class="kt-inbox__summary">Your payment of 4500USD to AirCar has been authorized and confirmed, thank you...</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    2 days ago
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="5" data-type="inbox">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--success">
-                                            <span>MP</span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Max O'Brien Planck</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Pay bills & win up to 600$ Cashback! - </span>
-                                        <span class="kt-inbox__summary">Congratulations on your iRun Coach subscription. You made no space for excuses and you decided on a healthier and happier life...</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    Jul 25
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="6" data-type="inbox">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand" style="background-image: url('./assets/media/users/100_4.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Teresa Fox</a></div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Congratulations on your iRun Coach subscription - </span>
-                                        <span class="kt-inbox__summary">Please make sure that you have one of the following cards with you when we deliver your order...</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    July 24
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item kt-inbox__item--unread" data-id="7" data-type="inbox">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon kt-inbox__icon--on" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand" style="background-image: url('./assets/media/users/300_21.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Luka Doncic</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">About your request for PalmLake - </span>
-                                        <span class="kt-inbox__summary">Thank you for creating a LIPO Account. Please click the link below to activate your account. This link will expire in 24 hours...</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    Jun 13
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="8" data-type="inbox">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon kt-inbox__icon--on" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--primary">
-                                            <span>WE</span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Wolfgang Ernst Pauli</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Activate your LIPO Account today - </span>
-                                        <span class="kt-inbox__summary">What you requested can't be arranged ahead of time but PalmLake said they'll do their best to accommodate you upon arrival....</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    25 May
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="9" data-type="inbox">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm" style="background-image: url('./assets/media/users/300_13.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Carles Puyol</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Payment Notification (DE223232034) - </span>
-                                        <span class="kt-inbox__summary">This is to confirm that you have used your credit/debit card for the booking. If you did not make this booking, please contact us immediately....</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    May 23
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="10" data-type="inbox">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand" style="background-image: url('./assets/media/users/100_12.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Jimmy Grey</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Verification of your card transaction - </span>
-                                        <span class="kt-inbox__summary">Your payment of 4500USD to AirCar has been authorized and confirmed, thank you....</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    Apr 12
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="11" data-type="inbox">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand" style="background-image: url('./assets/media/users/100_5.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Patty Jo Watson</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Optimize with Recommendations, now used by most advertisers - </span>
-                                        <span class="kt-inbox__summary">Discover interesting ideas and unique perspectives. Read, explore and follow your interests. Get personalized recommendations delivered to you....</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    Mar 1
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="12" data-type="inbox">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--warning">
-                                            <span>RW</span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Roberts O'Neill Wilson</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Welcome, Patty - </span>
-                                        <span class="kt-inbox__summary">Your weekly report is a good way to track your performance. See what’s working so far and explore new opportunities for improvement....</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    Feb 11
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="13" data-type="inbox">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand" style="background-image: url('./assets/media/users/100_3.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Nick Mana</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Pro Article Marketing Guide - </span>
-                                        <span class="kt-inbox__summary">Video has rolled into every marketing platform or channel, leaving...</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime">
-                                    Jan 24
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item kt-inbox__item--unread" data-id="14" data-type="marked">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand" style="background-image: url('./assets/media/users/100_5.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Lebron King James </a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Free Video Marketing Guide - </span>
-                                        <span class="kt-inbox__summary">Video has rolled into every marketing platform or channel, leaving...</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime">
-                                    Jan 24
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="15" data-type="marked">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand" style="background-image: url('./assets/media/users/100_2.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Anna Strong</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Pay bills & win up to 600$ Cashback! - </span>
-                                        <span class="kt-inbox__summary">Video has rolled into every marketing platform or channel, leaving...</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime">
-                                    Jan 24
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="61" data-type="marked">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand" style="background-image: url('./assets/media/users/100_5.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Jimmy Yesuku</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Free Video Marketing Guide - </span>
-                                        <span class="kt-inbox__summary">Please make sure that you have one of the following cards with you when we deliver your order...</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    July 24
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item kt-inbox__item--unread" data-id="71" data-type="marked">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon kt-inbox__icon--on" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand" style="background-image: url('./assets/media/users/100_3.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Chris Bent</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">About your request for PalmLake - </span>
-                                        <span class="kt-inbox__summary">Thank you for creating a LIPO Account. Please click the link below to activate your account. This link will expire in 24 hours...</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    Jun 13
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="8" data-type="marked">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon kt-inbox__icon--on" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--dark">
-                                            <span>WE</span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Wolfgang Ernst Pauli</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Activate your LIPO Account today - </span>
-                                        <span class="kt-inbox__summary">What you requested can't be arranged ahead of time but PalmLake said they'll do their best to accommodate you upon arrival....</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    25 May
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="9" data-type="marked">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand" style="background-image: url('./assets/media/users/100_5.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Patty Jo Watson</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Payment Notification (DE223232034) - </span>
-                                        <span class="kt-inbox__summary">Discover interesting ideas and unique perspectives. Read, explore and follow your interests. Get personalized recommendations delivered to you....</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    Mar 1
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="10" data-type="marked">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand" style="background-image: url('./assets/media/users/300_22.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Max Born</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Welcome, Patty - </span>
-                                        <span class="kt-inbox__summary">Your payment of 4500USD to AirCar has been authorized and confirmed, thank you....</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    Apr 12
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="11" data-type="marked">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm" style="background-image: url('./assets/media/users/100_12.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Sarah Boysen</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">About your request for PalmLake - </span>
-                                        <span class="kt-inbox__summary">This is to confirm that you have used your credit/debit card for the booking. If you did not make this booking, please contact us immediately....</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    May 23
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="16" data-type="draft">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon kt-inbox__icon--on" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--dark">
-                                            <span>WE</span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Wolfgang Ernst Pauli</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Verification of your card transaction - </span>
-                                        <span class="kt-inbox__summary">What you requested can't be arranged ahead of time but PalmLake said they'll do their best to accommodate you upon arrival....</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    25 May
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="17" data-type="draft">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm" style="background-image: url('./assets/media/users/300_15.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Megan Higgins</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Payment Notification (DE223232034) - </span>
-                                        <span class="kt-inbox__summary">This is to confirm that you have used your credit/debit card for the booking. If you did not make this booking, please contact us immediately....</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    May 23
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="18" data-type="draft">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand" style="background-image: url('./assets/media/users/300_24.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Chelsea Hughes</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Verification of your card transaction - </span>
-                                        <span class="kt-inbox__summary">Your payment of 4500USD to AirCar has been authorized and confirmed, thank you....</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    Apr 12
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="19" data-type="sent">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand" style="background-image: url('./assets/media/users/100_6.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Luke Davids</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Welcome, Patty - </span>
-                                        <span class="kt-inbox__summary">Your payment of 4500USD to AirCar has been authorized and confirmed, thank you....</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    Apr 12
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item kt-inbox__item--unread" data-id="20" data-type="sent">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand" style="background-image: url('./assets/media/users/300_15.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Karl Hugo</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Payment Notification (DE223232034) - </span>
-                                        <span class="kt-inbox__summary">Discover interesting ideas and unique perspectives. Read, explore and follow your interests. Get personalized recommendations delivered to you....</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    Mar 1
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="21" data-type="sent">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--warning">
-                                            <span>RW</span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Roberts O'Neill Wilson</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Your Order #224820998666029 has been Confirmed - </span>
-                                        <span class="kt-inbox__summary">Your weekly report is a good way to track your performance. See what’s working so far and explore new opportunities for improvement....</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    Feb 11
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item kt-inbox__item--unread" data-id="22" data-type="trash">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand">
-                                            <span>CH</span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Chelsea Hughes</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Optimize with Recommendations, now used by most advertisers - </span>
-                                        <span class="kt-inbox__summary">Your Order #224820998666029 has been placed on Saturday, 29 June, 2019 10:02:41 via Online Banking...</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    11:20PM
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="23" data-type="trash">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon kt-inbox__icon--on" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon kt-inbox__icon--on" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand" style="background-image: url('./assets/media/users/300_10.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Lisa Moss</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Congratulations on your iRun Coach subscription - </span>
-                                        <span class="kt-inbox__summary">Your payment of 4500USD to AirCar has been authorized and confirmed, thank you...</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    2 days ago
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item kt-inbox__item--unread" data-id="24" data-type="trash">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--success">
-                                            <span>MP</span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Max O'Brien Planck</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Payment Notification DLOP2329KD - </span>
-                                        <span class="kt-inbox__summary">Congratulations on your iRun Coach subscription. You made no space for excuses and you decided on a healthier and happier life...</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    Jul 25
-                                </div>
-                            </div>
-                            <div class="kt-inbox__item" data-id="25" data-type="trash">
-                                <div class="kt-inbox__info">
-                                    <div class="kt-inbox__actions">
-                                        <label class="kt-checkbox kt-checkbox--single kt-checkbox--tick kt-checkbox--brand">
-                                            <input type="checkbox">
-                                            <span></span>
-                                        </label>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Star">
-                                            <i class="flaticon-star"></i>
-                                        </span>
-                                        <span class="kt-inbox__icon" data-toggle="kt-tooltip" data-placement="right" title="Mark as important">
-                                            <i class="flaticon-add-label-button"></i>
-                                        </span>
-                                    </div>
-                                    <div class="kt-inbox__sender" data-toggle="view">
-                                        <span class="kt-media kt-media--circle kt-media--sm kt-media--brand" style="background-image: url('./assets/media/users/300_16.jpg')">
-                                            <span></span>
-                                        </span>
-                                        <a href="#" class="kt-inbox__author">Lisa Moss</a>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__details" data-toggle="view">
-                                    <div class="kt-inbox__message">
-                                        <span class="kt-inbox__subject">Pay bills & win up to 600$ Cashback! - </span>
-                                        <span class="kt-inbox__summary">Please make sure that you have one of the following cards with you when we deliver your order...</span>
-                                    </div>
-                                </div>
-                                <div class="kt-inbox__datetime" data-toggle="view">
-                                    July 24
-                                </div>
-                            </div>
+                            </div>       
                         </div>
                     </div>
                 </div>
@@ -1979,11 +1056,12 @@
 
 <script>
     import {mapMutations, mapGetters, mapActions} from 'vuex';
+    import {API_URL} from "../config";
     export default {
         name: "ListRequest",
         data() {
             return {
-               
+               requests: [],
             }
         },
         computed: {
@@ -1995,7 +1073,34 @@
             })
         },
         methods: {
-            
-        }
+            // async getData() {
+            //     try {
+            //         let token = 'wm6MSwRuTHN66N2ODpzh_rhBgxgQOt1oqfS8ZcF2MZs'
+            //         const headers = {'Authorization': 'Bearer '+token,  "Content-Type": "application/json" };
+            //         let response = await fetch("https://5694-116-97-177-91.ngrok.io/api/v1/requests?page=1&type_request=1", { headers });
+            //         this.posts = await response.json();;
+            //         console.log(this.posts)
+            //         console.log(API_URL)
+            //     } catch (error) {
+            //         console.log(error);
+            //     }
+            // },
+
+            async getRequest(param) {
+                try {
+                    let token = 'wm6MSwRuTHN66N2ODpzh_rhBgxgQOt1oqfS8ZcF2MZs'
+                    let url = API_URL + '/requests?page=1&type_request=' + param
+                    const headers = {'Authorization': 'Bearer '+token,  "Content-Type": "application/json" }
+                    let response = await fetch(url, { headers })
+                    this.requests = await response.json()
+                    console.log(this.requests)
+                } catch (error) {
+                    console.log(error);
+                }
+            },
+            trigger() {
+                this.$refs.getRequest.click();
+            }
+        },
     }
 </script>

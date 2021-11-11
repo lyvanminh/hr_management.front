@@ -137,6 +137,20 @@ const actions = {
                 context.commit('message/setErrorDescription', error.response.data.error_description, {root: true});
             }
         });
+    },
+
+    async getListRequest(context, params) {
+        try {
+            let token = 'wm6MSwRuTHN66N2ODpzh_rhBgxgQOt1oqfS8ZcF2MZs'
+            let url = API_URL + '/requests?page=1&type_request=' + params.param
+            const headers = {'Authorization': 'Bearer '+token,  "Content-Type": "application/json" }
+            let response = await fetch(url, { headers })
+            this.requests = await response.json()
+            console.log(this.requests)
+            return this.requests
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
