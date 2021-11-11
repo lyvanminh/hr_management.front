@@ -8,6 +8,7 @@ import ListRequest from "../pages/ListRequest";
 import ListCandidate from "../pages/ListCandidate";
 import ForgotPassword from "./../pages/auth/ForgotPassword";
 import ConfirmSignup from "./../pages/auth/ConfirmSignup";
+import CreateRequestRecruitment from "../pages/CreateRequestRecruitment";
 
 export const routes = [
     {
@@ -66,7 +67,7 @@ export const routes = [
         },
     },
     {
-        path: '/list-request',
+        path: '/',
         name: 'ListRequest',
         component: ListRequest,
         meta: {
@@ -78,6 +79,15 @@ export const routes = [
         path: '/list-candidate',
         name: 'ListCandidate',
         component: ListCandidate,
+        meta: {
+            auth: true,
+            not_sidebar: false
+        },
+    },
+    {
+        path: '/create-request-recruitment',
+        name: 'CreateRequestRecruitment',
+        component: CreateRequestRecruitment,
         meta: {
             auth: true,
             not_sidebar: false

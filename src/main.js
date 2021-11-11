@@ -34,17 +34,13 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   if (to.meta.auth) {
     if (!localStorage.getItem('token')) {
-      // router.push({name: 'login'});
-      alert('Vui lòng đăng nhập lại: ' + to.path + ', ' + to.meta.auth);
+      router.push({name: 'login'});
+      alert('Vui lòng đăng nhập lại');
       window.location.href = '/login';
       return;
     } else {
       console.log('wtf');
     }
-
-    // if (!store.getters['user/getUser']) {
-    //     store.dispatch('user/actGetUser');
-    // }
   }
 
   let routerNameNotAuth = [
@@ -54,7 +50,7 @@ router.beforeEach((to, from, next) => {
   if (localStorage.getItem('token') && routerNameNotAuth.indexOf(to.name) !== -1) {
     if (localStorage.getItem('user_type')) {
         let userType = localStorage.getItem('user_type');
-        // router.push({name: 'home', params: {user_type: userType}})
+        router.push({name: 'home', params: {user_type: userType}})
     }
 
     return;

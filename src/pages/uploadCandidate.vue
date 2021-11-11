@@ -88,7 +88,7 @@
 
                                 <div class="form-group">
                                     <label>Content CV</label>
-                                    <input v-on:change="formatCv()" type="file" class="form-control" name="content_cv" value="" required ref="fileInput">
+                                    <input v-on:change="formatCv()" type="file" class="form-control" name="content_cv" required ref="fileInput">
                                     <span class="form-text text-muted">Please choose cv file</span>
                                 </div>
 
@@ -157,7 +157,7 @@ export default {
             file_cv: '',
             isModalVisible: false,
             users_approve: [],
-            camdidate_id: ''
+            cadidate_id: ''
         }
 
         
@@ -300,14 +300,15 @@ export default {
                 formData,
                 {
                     headers: {
-                        'Content-Type': 'multipart/form-data'
+                        'Content-Type': 'multipart/form-data',
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
                     }
                 }
             )
             .then(function (response) {
                 vm.resetForm();
                 vm.isModalVisible = true;
-                vm.camdidate_id = response.data.result.id;
+                vm.cadidate_id = response.data.result.id;
             })
             .catch(function (response) {
             });
@@ -325,7 +326,8 @@ export default {
                 formData,
                 {
                     headers: {
-                        'Content-Type': 'multipart/form-data'
+                        'Content-Type': 'multipart/form-data',
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
                     }
                 }
             )
@@ -350,14 +352,20 @@ export default {
             let vm = this;
             this.isModalVisible = false;
             this.users_approve = users_approve;
-
-            axios.post(API_URL + '/requests', {
-                    content: "",
-                    camdidate_id: vm.camdidate_id,
-                    user_names: vm.users_approve,
-                    number: 1,
-                    type_request: "wait_approve_cv",
-                    requestable_type: "Evaluate"
+            const data = {
+                content: "",
+                candidate_id: vm.cadidate_id,
+                user_names: vm.users_approve,
+                number: 1,
+                type_request: "evaluate_cv",
+                status: "wait_approve_cv",
+                requestable_type: "Evaluate"
+            }
+            axios.post(API_URL + '/requests', data,
+                {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
                 }
             )
             .then(function (response) {

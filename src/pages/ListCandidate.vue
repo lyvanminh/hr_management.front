@@ -4,36 +4,15 @@
     <!-- begin:: Subheader -->
     <div class="kt-subheader   kt-grid__item" id="kt_subheader">
         <div class="kt-container  kt-container--fluid ">
-            <div class="kt-subheader__main">
-                <h3 class="kt-subheader__title">Pagination Options Examples</h3>
-                <span class="kt-subheader__separator kt-hidden"></span>
-                <div class="kt-subheader__breadcrumbs">
-                    <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
-                    <span class="kt-subheader__breadcrumbs-separator"></span>
-                    <a href="" class="kt-subheader__breadcrumbs-link">
-                        Datatables </a>
-                    <span class="kt-subheader__breadcrumbs-separator"></span>
-                    <a href="" class="kt-subheader__breadcrumbs-link">
-                        Datatables.net </a>
-                    <span class="kt-subheader__breadcrumbs-separator"></span>
-                    <a href="" class="kt-subheader__breadcrumbs-link">
-                        Base </a>
-                    <span class="kt-subheader__breadcrumbs-separator"></span>
-                    <a href="" class="kt-subheader__breadcrumbs-link">
-                        Pagination Options </a>
-
-                    <!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
-                </div>
-            </div>
             <div class="kt-subheader__toolbar">
                 <div class="kt-subheader__wrapper">
-                    <a href="#" class="btn btn-icon btn btn-label btn-label-brand btn-bold" data-toggle="kt-tooltip" title="Reports" data-placement="top"><i class="flaticon2-writing"></i></a>
-                    <a href="#" class="btn btn-icon btn btn-label btn-label-brand btn-bold" data-toggle="kt-tooltip" title="Calendar" data-placement="top"><i class="flaticon2-hourglass-1"></i></a>
-                    <div class="dropdown dropdown-inline" data-toggle="kt-tooltip" title="Quick actions" data-placement="top">
-                        <a href="#" class="btn btn-icon btn btn-label btn-label-brand btn-bold" data-toggle="dropdown" data-offset="0px,0px" aria-haspopup="true" aria-expanded="false">
+                    <!-- <a href="#" class="btn btn-icon btn btn-label btn-label-brand btn-bold" data-toggle="kt-tooltip" title="Reports" data-placement="top"><i class="flaticon2-writing"></i></a>
+                    <a href="#" class="btn btn-icon btn btn-label btn-label-brand btn-bold" data-toggle="kt-tooltip" title="Calendar" data-placement="top"><i class="flaticon2-hourglass-1"></i></a> -->
+                    <div class="dropdown dropdown-inline">
+                        <router-link class="btn btn-icon btn btn-label btn-label-brand btn-bold" :to="setLinkTo('uploadCandidate')">
                             <i class="flaticon2-add-1"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                        </router-link>
+                        <!-- <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
                             <ul class="kt-nav kt-nav--active-bg" role="tablist">
                                 <li class="kt-nav__item">
                                     <a href="" class="kt-nav__link">
@@ -75,9 +54,9 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="dropdown dropdown-inline" data-toggle="kt-tooltip" title="Quick actions" data-placement="top">
+                    <!-- <div class="dropdown dropdown-inline" data-toggle="kt-tooltip" title="Quick actions" data-placement="top">
                         <a href="#" class="btn btn btn-label btn-label-brand btn-bold" data-toggle="dropdown" data-offset="0 0" aria-haspopup="true" aria-expanded="false">
                             Reports
                         </a>
@@ -127,7 +106,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -137,20 +116,13 @@
 
     <!-- begin:: Content -->
     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-        <div class="alert alert-light alert-elevate" role="alert">
+        <!-- <div class="alert alert-light alert-elevate" role="alert">
             <div class="alert-icon"><i class="flaticon-warning kt-font-brand"></i></div>
             <div class="alert-text">
                 The default page control presented by DataTables (forward and backward buttons with up to 7 page numbers in-between) is fine for most situations.
             </div>
-        </div>
+        </div> -->
         <div class="kt-portlet kt-portlet--mobile">
-            <div class="kt-portlet__head">
-                <div class="kt-portlet__head-label">
-                    <h3 class="kt-portlet__head-title">
-                        Extended Pagination
-                    </h3>
-                </div>
-            </div>
             <div class="kt-portlet__body">
 
                 <!--begin: Datatable -->
@@ -160,7 +132,7 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Birth day</th>
-                            <th>Email</th>
+                            <th style="width: 30px;">Email</th>
                             <th>Phone Number</th>
                             <th>Address</th>
                             <th>Chanel</th>
@@ -170,7 +142,7 @@
                             <th>Content CV</th>
                             <th>Url CV</th>
                             <th>User refferal</th>
-                            <th></th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -178,7 +150,7 @@
                             <td>{{ candidate.id }}</td>
                             <td>{{ candidate.user_name }}</td>
                             <td>{{ candidate.birth_day }}</td>
-                            <td>{{ candidate.email }}</td>
+                            <td style="width: 30px;">{{ candidate.email }}</td>
                             <td>{{ candidate.phone }}</td>
                             <td>{{ candidate.address }}</td>
                             <td>{{ candidate.chanel.chanel_name }}</td>
@@ -190,9 +162,13 @@
                                     <iframe :src="candidate.content_cv.url" style="width: 100%; height: 20%;"></iframe>
                                 </a>
                             </td>
-                            <td>{{ candidate.url_cv }}</td>
+                            <td>
+                                <a :href="candidate.url_cv" target="_blank">
+                                    {{ candidate.url_cv }}
+                                </a>
+                            </td>
                             <td>{{ candidate.user.name }}</td>
-                            <td></td>
+                            <td>{{ formatStatusCandidate(candidate.status) }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -229,7 +205,28 @@
             this.$store.dispatch('getListCandidate');
         },
         methods: {
-            
+            formatStatusCandidate(status){
+                switch(status) {
+                case "wait_approve":
+                    return "Wait Appove"
+                case "fail_cv":
+                    return "Fail CV"
+                case "pass_cv":
+                    return "Pass CV"
+                case "fail_test":
+                    return "Fail test"
+                case "pass_test":
+                    return "Pass test"
+                case "fail_interview":
+                    return "Fail candidate"
+                case "pass_interview":
+                    return "Pass candidate"
+                case "fail_offer":
+                    return "Fail offer"
+                case "pass_offer":
+                    return "Pass offer"
+                }
+            }
         }
     }
 </script>

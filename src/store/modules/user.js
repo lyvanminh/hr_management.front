@@ -13,23 +13,23 @@ const getters = {
 };
 
 const actions = {
-    actGetUser(context, params) {
-        let url = '/users/me';
+    // actGetUser(context, params) {
+    //     let url = '/users/me';
 
-        return new Http().authenticated().get(url)
-            .then(res => {
-                if (res.data.status === 1) {
-                    context.commit('setUser', res.data.data);
-                } else {
-                    console.log('actGetUser', res.data);
-                }
-            })
-            .catch(error => {
-                if (error.response.status === 401) {
-                    context.dispatch('auth/actLogout', null, {root: true});
-                }
-            });
-    },
+    //     return new Http().authenticated().get(url)
+    //         .then(res => {
+    //             if (res.data.status === 1) {
+    //                 context.commit('setUser', res.data.data);
+    //             } else {
+    //                 console.log('actGetUser', res.data);
+    //             }
+    //         })
+    //         .catch(error => {
+    //             if (error.response.status === 401) {
+    //                 context.dispatch('auth/actLogout', null, {root: true});
+    //             }
+    //         });
+    // },
     // actAddUser(context, params) {
     //     let url = 'users';
     //
