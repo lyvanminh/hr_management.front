@@ -23,13 +23,29 @@
                 <div class="kt-subheader__toolbar">
                     <div class="kt-subheader__wrapper">
                         <div class="dropdown dropdown-inline">
-                            <router-link class="btn btn-icon btn btn-label btn-label-brand btn-bold" :to="setLinkTo('create-request-recruitment')">
+                            <a href="#" class="btn btn-icon btn btn-label btn-label-brand btn-bold" data-toggle="dropdown" data-offset="0px,0px" aria-haspopup="true" aria-expanded="false">
                                 <i class="flaticon2-add-1"></i>
-                            </router-link>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                                <ul class="kt-nav kt-nav--active-bg" role="tablist">
+                                    <li class="kt-nav__item">
+                                        <router-link class="kt-nav__link" :to="setLinkTo('CreateRequestRecruitment')">
+                                            <i class="kt-nav__link-icon flaticon2-psd"></i>
+                                            <span class="kt-nav__link-text">Create recruitment request</span>
+                                        </router-link>
+                                    </li>
+                                    <li class="kt-nav__item">
+                                        <a class="kt-nav__link" role="tab">
+                                            <i class="kt-nav__link-icon flaticon2-supermarket"></i>
+                                            <span class="kt-nav__link-text">Create evaluates request</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <!-- <a href="#" class="btn btn-icon btn btn-label btn-label-brand btn-bold" data-toggle="kt-tooltip" title="Reports" data-placement="top"><i class="flaticon2-writing"></i></a>
-                        <a href="#" class="btn btn-icon btn btn-label btn-label-brand btn-bold" data-toggle="kt-tooltip" title="Calendar" data-placement="top"><i class="flaticon2-hourglass-1"></i></a>
-                        <div class="dropdown dropdown-inline" data-toggle="kt-tooltip" title="Quick actions" data-placement="top">
+                        <a href="#" class="btn btn-icon btn btn-label btn-label-brand btn-bold" data-toggle="kt-tooltip" title="Calendar" data-placement="top"><i class="flaticon2-hourglass-1"></i></a> -->
+                        <!-- <div class="dropdown dropdown-inline" data-toggle="kt-tooltip" title="Quick actions" data-placement="top">
                             <a href="#" class="btn btn-icon btn btn-label btn-label-brand btn-bold" data-toggle="dropdown" data-offset="0px,0px" aria-haspopup="true" aria-expanded="false">
                                 <i class="flaticon2-add-1"></i>
                             </a>

@@ -51,7 +51,6 @@ const actions = {
         .then(res => {
             localStorage.clear();
             context.commit('user/setUser', null, {root: true});
-            params.router.push({name: 'login'})
             window.location.href = '/login';
         })
         .catch(error => {

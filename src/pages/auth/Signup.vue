@@ -9,8 +9,7 @@
                     <div class="kt-login-v1__head">
                         <div class="kt-login-v1__logo">
                             <a href="#">
-                                <img src="assets/media/logos/icon64.png" alt="" />
-                                <span class="logo-text">Ads Manager</span>
+                                <img src="assets/media/logos/hr_management.jpeg" alt="" style="width: 10%;"/>
                             </a>
                         </div>
                     </div>
@@ -25,8 +24,7 @@
                             <!--begin::Section-->
                             <div class="kt-login-v1__section">
                                 <div class="kt-login-v1__info">
-                                    <h3 class="kt-login-v1__intro">Facebook Resources System Management</h3>
-                                    <p>Everything will be okay</p>
+                                    <h3 class="kt-login-v1__intro">Human Recruitment Management</h3>
                                 </div>
                             </div>
 

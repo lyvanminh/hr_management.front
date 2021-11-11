@@ -11,13 +11,14 @@
                     <div class="kt-login-v1__head">
                         <div class="kt-login-v1__logo">
                             <a href="#">
-                                <img src="assets/media/logos/icon64.png" alt="" />
-                                <span class="logo-text">Ads Manager</span>
+                                <img src="assets/media/logos/hr_management.jpeg" alt="" style="width: 10%;"/>
                             </a>
                         </div>
                         <div class="kt-login-v1__signup">
                             <h4 class="kt-login-v1__heading">Don't have an account?</h4>
-                            <a href="#">Sign Up</a>
+                            <router-link :to="setLinkTo('Signup')">
+                                Sign Up
+                            </router-link>
                         </div>
                     </div>
 
@@ -35,8 +36,7 @@
                         <!--begin::Section-->
                         <div class="kt-login-v1__section">
                             <div class="kt-login-v1__info">
-                                <h3 class="kt-login-v1__intro">Facebook Resources System Management</h3>
-                                <p>Everything will be okay</p>
+                                <h3 class="kt-login-v1__intro">Human Recruitment Management</h3>
                             </div>
                         </div>
 
@@ -71,9 +71,9 @@
                                         <input @keyup.enter="trigger" class="form-control" type="hidden" v-model="form.grant_type" name="grant_type">
                                     </div>
                                     <div class="kt-login-v1__actions">
-                                        <a href="#" class="kt-login-v1__forgot">
+                                        <router-link  class="kt-login-v1__forgot" :to="setLinkTo('forgot-password')">
                                             Forgot Password ?
-                                        </a>
+                                        </router-link>
                                         <button @click="submit" ref="submit" class="btn btn-pill btn-elevate">Sign In</button>
                                     </div>
                                 </div>

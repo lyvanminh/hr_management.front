@@ -30,12 +30,12 @@
                     <h4 class="kt-menu__section-text">Resources</h4>
                     <i class="kt-menu__section-icon flaticon-more-v2"></i>
                 </li>
-                <li :class="'kt-menu__item ' + checkActive('uploadCandidate')" aria-haspopup="true">
+                <!-- <li :class="'kt-menu__item ' + checkActive('uploadCandidate')" aria-haspopup="true">
                     <router-link class="kt-menu__link" :to="setLinkTo('uploadCandidate')">
                         <i class="kt-menu__link-icon flaticon-price-tag"></i>
-                        <span class="kt-menu__link-text">Ads Data</span>
+                        <span class="kt-menu__link-text">Upload CV</span>
                     </router-link>
-                </li>
+                </li> -->
 
                 <li :class="'kt-menu__item ' + checkActive('ListRequest')" aria-haspopup="true">
                     <router-link class="kt-menu__link" :to="setLinkTo('ListRequest')">

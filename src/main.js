@@ -34,8 +34,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   if (to.meta.auth) {
     if (!localStorage.getItem('token')) {
-      router.push({name: 'login'});
-      alert('Vui lòng đăng nhập lại');
+      // router.push({name: 'login'});
       window.location.href = '/login';
       return;
     } else {
