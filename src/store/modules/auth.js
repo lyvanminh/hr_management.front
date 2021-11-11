@@ -141,7 +141,7 @@ const actions = {
 
     async getListRequest(context, params) {
         try {
-            let token = 'wm6MSwRuTHN66N2ODpzh_rhBgxgQOt1oqfS8ZcF2MZs'
+            let token = localStorage.getItem('token')
             let url = API_URL + '/requests?page=1&type_request=' + params.param
             const headers = {'Authorization': 'Bearer '+token,  "Content-Type": "application/json" }
             let response = await fetch(url, { headers })
